@@ -11,8 +11,27 @@ var SprintService = function($log) {
     members = data;
   }
 
+  /*
+  * returns an array of unique team names
+  */
+  function getTeams() {
+    var teams = [], name = null;
+    
+    for (var pos in members) {
+      var name = members[pos].team;
+      if (name && teams.indexOf(name) < 0) {
+        teams.push(name);
+      } else {
+        // team name is already in list
+      }
+    }
+    $log.info('SprintService found '+teams.length+' teams');
+    return teams;
+  }
+
   return {
-    init: init
+    init: init,
+    getTeams: getTeams
   };
 };
 

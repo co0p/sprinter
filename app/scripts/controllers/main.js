@@ -7,7 +7,7 @@ angular.module('sprinterApp')
     var data = SprintResource.query(function(data) {
       AlertService.add('info', 'Database ('+data.length+' entries) has been loaded.', 2000);
       SprintService.init(data);
-
+      $scope.teams = SprintService.getTeams();
     }, function(reason) {
       AlertService.add('danger', 'Failed loading database: ' + reason);
     });
