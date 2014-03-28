@@ -6,24 +6,32 @@
   <div class="header">
     <ul class="nav nav-pills pull-right">
       <!-- <li><button class="btn btn-default" ng-click="reset()"> <span class="glyphicon glyphicon-trash"></span> Reset DB</button></li> -->
+
+      <li><button class="btn btn-default" ng-click="add()"> <span class="glyphicon glyphicon-user"></span> New member</button></li>
+
       <li><button class="btn btn-default" ng-click="save()"> <span class="glyphicon glyphicon-floppy-disk"></span> Save</button></li>
     </ul>
-    <h3 class="text-muted">sprinter <small>helping scrummasters since 2014</small></h3>
+    <h3 class="text-muted">sprinter <small>helping scrumteams since 2014</small></h3>
   </div>
 
   <!-- MAIN CONTENT -->
   <div class="container">
 
+    <!-- in case we don't have data yet -->
+    <div class="jumbotron" ng-show="!teams.length">
+      <div class="container">
+      No teams found yet, try adding your first team member
+      </div>
+    </div>
+
     <!-- each team has it's own tab -->
-    <tabset>
+    <tabset ng-show="teams.length">
       <tab ng-repeat="team in teams" active="team.active">
 
-        <!-- tab header -->
         <tab-heading>
-        <span class="tab-heading-name">{{team.name}}</span> </tab-heading>
+        <span class="tab-heading-name">{{team}}</span> </tab-heading>
 
-        <!-- tab content -->
-<!--         <div sprinter-calculator></div> -->
+        <div sprinter-calculator></div>
       </tab>
     </tabset>
 
@@ -31,5 +39,5 @@
 
   <!-- FOOTER -->
   <div class="footer">
-    <p class="pull-right">♥ to the folks working on (github|angular|bower|npm)</p>
+    <p class="pull-right">♥ to the folks working on (github|angular|bower|npm|bootstrap|grunt)</p>
   </div>
