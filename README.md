@@ -16,5 +16,6 @@ The database is a simple json object of members:
 [
   {name: 'peter', team:'dev', days:4, drag:0.6},
   {...},
-    ...
-]```
+  ...
+]
+```
