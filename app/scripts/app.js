@@ -18,4 +18,4 @@ angular.module('sprinterApp', [
         redirectTo: '/'
       });
   })
-  .constants('SERVER_URL', '127.0.0.1:8080');
+  .constant('SERVER_URL',"http://127.0.0.1:8080/server.php");
