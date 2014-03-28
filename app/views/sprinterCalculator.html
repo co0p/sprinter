@@ -1,0 +1,58 @@
+<div class="container">
+
+  <div class="panel panel-default statistics-container">
+    <div class="panel-heading">Team <strong>{{team.name}}</strong>
+      <button class="btn btn-default btn-xs pull-right" ng-click="addNewTeam()"> <span class="glyphicon glyphicon-plus"></span> Add a new team</button>
+    </div>
+
+    <div class="panel-body">
+      <ul>
+      <li>Average days: <strong>{{averageDays}}</strong></li>
+      <li>Average drag factor: <strong>{{averageDrag}}</strong></li>
+      </ul>
+    </div>
+  </div>
+
+
+
+  <div class="panel panel-default statistics-container">
+    <div class="panel-heading">Members
+
+      <button class="btn btn-default btn-xs pull-right" ng-click="newMember()"><span class="glyphicon glyphicon-plus"></span> Add a new member</button>
+      </div>
+    <div class="panel-body">
+
+
+      <div class="row member-row">
+        <div class="col-xs-3"><strong>Name</strong></div>
+        <div class="col-xs-3"><strong>Group</strong></div>
+        <div class="col-xs-2"><strong>Days</strong></div>
+        <div class="col-xs-2"><strong>Drag factor</strong></div>
+        <div class="col-xs-2">
+
+        </div>
+      </div>
+
+      <div class="row member-row" ng-repeat="(i, member) in team.members track by $index">
+        <div class="col-xs-3">{{team.members[i].name}}</div>
+        <div class="col-xs-3">{{team.members[i].group}}</div>
+        <div class="col-xs-2">
+          <select type="text" ng-selected="team.members[i].days" class="form-control" ng-model="team.members[i].days">
+            <option ng-repeat="day in days">{{day}}</option>
+          </select>
+        </div>
+        <div class="col-xs-2">
+          <select type="text" class="form-control" ng-model="team.members[i].drag">
+            <option ng-repeat="drag in drags">{{drag}}</option>
+          </select>
+        </div>
+        <div class="col-xs-2">
+          <button class="btn btn-default btn-xs" ng-click="deleteMember(i)"><span class="glyphicon glyphicon-trash"></span></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>

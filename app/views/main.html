@@ -1,0 +1,36 @@
+<div class="alert-container">
+ <alert ng-repeat="alert in alerts" type="alert.type" close="alert.close()" class="alert-floating">{{alert.msg}}</alert>
+</div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <ul class="nav nav-pills pull-right">
+      <!-- <li><button class="btn btn-default" ng-click="reset()"> <span class="glyphicon glyphicon-trash"></span> Reset DB</button></li> -->
+      <li><button class="btn btn-default" ng-click="save()"> <span class="glyphicon glyphicon-floppy-disk"></span> Save</button></li>
+    </ul>
+    <h3 class="text-muted">sprinter <small>helping scrummasters since 2014</small></h3>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+
+    <!-- each team has it's own tab -->
+    <tabset>
+      <tab ng-repeat="team in teams" active="team.active">
+
+        <!-- tab header -->
+        <tab-heading>
+        <span class="tab-heading-name">{{team.name}}</span> <button class="btn btn-default btn-xs" ng-click="deleteTeam()" ng-show="team.active"><span class="glyphicon glyphicon-trash" ></span></button>
+        </tab-heading>
+
+        <!-- tab content -->
+        <div sprinter-calculator></div>
+      </tab>
+    </tabset>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <p class="pull-right">♥ from the iaweb team</p>
+  </div>

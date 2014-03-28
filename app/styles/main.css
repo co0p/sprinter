@@ -1,0 +1,56 @@
+
+
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width:800px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.header {
+  padding-top:70px;
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+    padding-bottom: 19px;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+/* Customize container */
+.container {
+  max-width: 800px;
+}
+
+.alert-container {
+  position: absolute;
+  z-index: 999999;
+  width:inherit;
+}
+
+.alert-floating {
+  position: relative;
+  width:inherit;
+}
+
+.statistics-container {
+  margin-top:20px;
+}
+
+.member-row {
+  margin-top:10px;
+}
+
+.tab-heading-name {
+  padding-right:8px;
+}
