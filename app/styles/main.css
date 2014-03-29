@@ -32,15 +32,23 @@ body {
   max-width: 800px;
 }
 
+.container-tab {
+  padding-left:0px;
+  padding-right:0px;
+}
+
 .alert-container {
   position: absolute;
   z-index: 999999;
-  width:inherit;
+  max-width:800px;
+  width:100%;
+  padding-left:10px;
+  padding-right:10px;
 }
 
 .alert-floating {
   position: relative;
-  width:inherit;
+  width:100%;
 }
 
 .statistics-container {

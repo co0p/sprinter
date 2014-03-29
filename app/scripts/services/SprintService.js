@@ -5,18 +5,21 @@
 */
 var SprintService = function($log) {
   var members = [];
+  var teams = [];
 
   function init(data) {
     $log.info('SprintService got data ', data.length);
     members = data;
+    teams = [];
   }
 
   /*
   * returns an array of unique team names
   */
   function getTeams() {
-    var teams = [], name = null;
-    
+    if (teams.length > 0) return teams;
+
+    var name = null;
     for (var pos in members) {
       var name = members[pos].team;
       if (name && teams.indexOf(name) < 0) {
@@ -29,9 +32,14 @@ var SprintService = function($log) {
     return teams;
   }
 
+  function getData() {
+    return members;
+  }
+
   return {
     init: init,
-    getTeams: getTeams
+    getTeams: getTeams,
+    getData: getData
   };
 };
 
