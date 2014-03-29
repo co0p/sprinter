@@ -1,16 +1,30 @@
 <div>
         <div class="modal-header">
-            <h3>Sprinter - helping sprints since 2014</h3>
+            <h3>Adding a new member</h3>
         </div>
         <div class="modal-body">
 
-        Sprinter helps Scrum-Masters with Scrum planning.
-        <ul>
-          <li>Organize teams</li>
-          <li>Calculate available hours</li>
-          <li>...</li>
+          <form role="form">
+            <div class="form-group">
+              <label for="memberName">Name</label>
+              <input type="text" class="form-control" ng-model="name" id="memberName" placeholder="Enter a name">
+            </div>
+
+            <div class="form-group">
+              <label for="teamName">Team</label>
+              <input type="text" class="form-control" ng-model="team" id="teamName" placeholder="Enter a team name">
+            </div>
+
+            <div class="form-group">
+              <label for="groupName">Group</label>
+              <input type="text" class="form-control" ng-model="group" id="groupName" placeholder="Enter a group name (optional)">
+            </div>
+          </form>
+
         </div>
+
         <div class="modal-footer">
-            <button class="btn btn-warning" ng-click="cancel()">Close</button>
+            <button class="btn btn-danger" ng-click="cancel()">Close</button>
+            <button class="btn btn-primary" ng-disabled="name.length == 0 || team.length == 0" ng-click="ok(name, team, group)">Add new member</button>
         </div>
 </div>

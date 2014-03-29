@@ -17,9 +17,7 @@ var SprintService = function($log) {
   * returns an array of unique team names
   */
   function getTeams() {
-    if (teams.length > 0) return teams;
 
-    var name = null;
     for (var pos in members) {
       var name = members[pos].team;
       if (name && teams.indexOf(name) < 0) {
@@ -36,10 +34,15 @@ var SprintService = function($log) {
     return members;
   }
 
+  function addMember(member) {
+    members.push(member);
+  }
+
   return {
     init: init,
     getTeams: getTeams,
-    getData: getData
+    getData: getData,
+    addMember: addMember
   };
 };
 

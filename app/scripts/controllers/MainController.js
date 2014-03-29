@@ -1,7 +1,7 @@
 'use strict';
 
 var app = angular.module('sprinterApp');
-app.controller('MainController', function ($scope, $http, SERVER_URL, $route, $modal, $log, SprintService, AlertService, AddController) {
+app.controller('MainController', function ($scope, $http, SERVER_URL, $route, $modal, $log, SprintService, AlertService) {
 
   $scope.teams = [];
 
@@ -20,14 +20,15 @@ app.controller('MainController', function ($scope, $http, SERVER_URL, $route, $m
   $scope.add = function() {
     var modalInstance = $modal.open({
       templateUrl: 'views/add.html',
-      controller: AddController
+      controller: 'AddController'
     });
-    modalInstance.result.then(function () {
-      console.log('a');
+    modalInstance.result.then(function (member) {
+      SprintService.addMember(member);
+      $scope.teams = SprintService.getTeams();
     }, function () {
       console.log('b');
     });
-  }
+  };
 
    // user wants to save current data to database
   $scope.save = function() {
@@ -43,7 +44,7 @@ app.controller('MainController', function ($scope, $http, SERVER_URL, $route, $m
     .error(function() {
       AlertService.add('danger', 'Failed saving data', 2000);
     });
-  }
+  };
 
   // user wants to reset the database
   $scope.reset = function() {
@@ -61,5 +62,5 @@ app.controller('MainController', function ($scope, $http, SERVER_URL, $route, $m
     .error(function() {
       AlertService.add('danger', 'Failed reseting data', 2000);
     });
-  }
+  };
 });

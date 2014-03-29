@@ -3,12 +3,20 @@
 var app = angular.module('sprinterApp');
 app.controller('AddController', function($scope, $modalInstance) {
 
-  $scope.ok = function () {
-    $modalInstance.close();
+  $scope.name = '';
+  $scope.team = '';
+  $scope.group = '';
+
+  $scope.ok = function (name, team, group) {
+    var member = {
+      name: name,
+      team: team,
+      group: group
+    };
+    $modalInstance.close(member);
   };
 
   $scope.cancel = function () {
-    console.log('..');
     $modalInstance.dismiss();
-  }
+  };
 });
