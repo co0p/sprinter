@@ -7,7 +7,7 @@ WARNING: WORK IN PROGRESS
 A little (angular) website helping a scrum master to get an
 understanding of the available time to plan a sprint.
 
-![Screenshot](https://raw.githubusercontent.com/co0p/sprinter/master/sprinterApp.png =200x)
+![](https://raw.githubusercontent.com/co0p/sprinter/master/sprinterApp.png)
 
 run the app with
 >  grunt serve
