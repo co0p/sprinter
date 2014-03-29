@@ -1,7 +1,7 @@
 'use strict';
 
 var app = angular.module('sprinterApp');
-app.controller('MainController', function ($scope, $http, $modal, $log, SprintService, AlertService, SERVER_URL) {
+app.controller('MainController', function ($scope, $http, SERVER_URL, $route, $modal, $log, SprintService, AlertService, AddController) {
 
   $scope.teams = [];
 
@@ -20,7 +20,12 @@ app.controller('MainController', function ($scope, $http, $modal, $log, SprintSe
   $scope.add = function() {
     var modalInstance = $modal.open({
       templateUrl: 'views/add.html',
-      controllerUrl: 'scripts/controllers/AddController.js'
+      controller: AddController
+    });
+    modalInstance.result.then(function () {
+      console.log('a');
+    }, function () {
+      console.log('b');
     });
   }
 
@@ -38,30 +43,23 @@ app.controller('MainController', function ($scope, $http, $modal, $log, SprintSe
     .error(function() {
       AlertService.add('danger', 'Failed saving data', 2000);
     });
-  };
-});
+  }
 
-  // /**
-  //  * user wants to delete a team
-  //  */
-  // $scope.deleteTeam = function() {
-  //   var modalInstance = $modal.open({
-  //     templateUrl: 'views/deleteTeam.html',
-  //     controller: function ($scope, $modalInstance) {
-  //       $scope.team = getActiveTeam();
-  //
-  //       $scope.ok = function () {
-  //         $modalInstance.close();
-  //       };
-  //
-  //       $scope.cancel = function () {
-  //         $modalInstance.dismiss();
-  //       };
-  //     }
-  //   });
-  //
-  //   modalInstance.result.then(function () {
-  //     console.log('a');
-  //   }, function () {
-  //     console.log('b');
-  //   });
+  // user wants to reset the database
+  $scope.reset = function() {
+    var data = [];
+    var dataStringified = JSON.stringify(data);
+    $http({
+      method:'POST',
+      url:SERVER_URL,
+      data: dataStringified
+    })
+    .success(function() {
+      // on success reload the app to start with a fresh setup
+      $route.reload();
+    })
+    .error(function() {
+      AlertService.add('danger', 'Failed reseting data', 2000);
+    });
+  }
+});

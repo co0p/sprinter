@@ -8,6 +8,7 @@ app.controller('AddController', function($scope, $modalInstance) {
   };
 
   $scope.cancel = function () {
+    console.log('..');
     $modalInstance.dismiss();
   }
 });
