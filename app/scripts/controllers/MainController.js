@@ -10,7 +10,7 @@ app.controller('MainController', function ($scope, $http, SERVER_URL, $route, $m
   .success(function(data) {
     SprintService.init(data);
     $scope.teams = SprintService.getTeams();
-    AlertService.add('info', 'Loaded '+$scope.teams.length+' entries from database', 2000);
+    AlertService.add('info', 'Loaded '+data.length+' entries from database', 2000);
   })
   .error(function(rejection) {
     AlertService.add('warning', 'Couldn\'t load database:', rejection);
@@ -38,7 +38,7 @@ app.controller('MainController', function ($scope, $http, SERVER_URL, $route, $m
       url:SERVER_URL,
       data: dataStringified
     })
-    .success(function() { //  status, headers, config
+    .success(function() {
       AlertService.add('info', 'Data has been saved.', 2000);
     })
     .error(function() {
@@ -62,5 +62,10 @@ app.controller('MainController', function ($scope, $http, SERVER_URL, $route, $m
     .error(function() {
       AlertService.add('danger', 'Failed reseting data', 2000);
     });
+  };
+
+  // remember which tab has been selected
+  $scope.tabSelected = function(index) {
+    $scope.activeTeamIndex = index;
   };
 });

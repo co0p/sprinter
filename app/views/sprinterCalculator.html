@@ -1,35 +1,30 @@
 <div class="container">
 
   <div class="panel panel-default statistics-container">
-    <div class="panel-heading">Team <strong>{{team.name}}</strong>
-      <button class="btn btn-default btn-xs pull-right" ng-click="addNewTeam()"> <span class="glyphicon glyphicon-plus"></span> Add a new team</button>
-    </div>
+    <div class="panel-heading">Team <strong>{{team.name}}</strong></div>
 
     <div class="panel-body">
-      <ul>
-      <li>Average days: <strong>{{averageDays}}</strong></li>
-      <li>Average drag factor: <strong>{{averageDrag}}</strong></li>
+
+      <h5>Your sprint has a total of <strong>{{totalHours}}</strong> hours available</h5>
+      <ul ng-repeat="group in groups">
+      <li>{{team.group.name}} has <strong>{{team.group.hours}}</strong> hours</li>
       </ul>
+
     </div>
   </div>
 
 
-
   <div class="panel panel-default statistics-container">
-    <div class="panel-heading">Members
-
-      <button class="btn btn-default btn-xs pull-right" ng-click="newMember()"><span class="glyphicon glyphicon-plus"></span> Add a new member</button>
-      </div>
+    <div class="panel-heading">Members </div>
     <div class="panel-body">
 
 
       <div class="row member-row">
         <div class="col-xs-3"><strong>Name</strong></div>
         <div class="col-xs-3"><strong>Group</strong></div>
-        <div class="col-xs-2"><strong>Days</strong></div>
-        <div class="col-xs-2"><strong>Drag factor</strong></div>
+        <div class="col-xs-2"><strong>Days (&#8709;{{averageDays}})</strong></div>
+        <div class="col-xs-2"><strong>Eff. (&#8709;{{averageDrag}})</strong></div>
         <div class="col-xs-2">
-
         </div>
       </div>
 

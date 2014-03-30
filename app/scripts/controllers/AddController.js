@@ -11,7 +11,9 @@ app.controller('AddController', function($scope, $modalInstance) {
     var member = {
       name: name,
       team: team,
-      group: group
+      group: group,
+      days: 0,
+      drag: 1
     };
     $modalInstance.close(member);
   };
