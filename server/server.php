@@ -83,7 +83,7 @@ function rest_post($request) {
   if ($file_handle) {
     fwrite($file_handle, $string);
     fclose($file_handle);
-    http_response_code(200);
+    responseWithOK('wrote '.strlen($string).' chars');
 
     logging('handled post request. Wrote '.strlen($string).' chars');
   } else {
