@@ -25,8 +25,6 @@ app.controller('MainController', function ($scope, $http, SERVER_URL, $route, $m
     modalInstance.result.then(function (member) {
       SprintService.addMember(member);
       $scope.teams = SprintService.getTeams();
-    }, function () {
-      console.log('b');
     });
   };
 

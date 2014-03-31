@@ -3,7 +3,7 @@
 /**
 * this is a service that handles the housekeeping of our dataset
 */
-var SprintService = function($log) {
+var SprintService = function() {
   var members = [];
   var teams = [];
 
@@ -38,7 +38,6 @@ var SprintService = function($log) {
         // team name is already in list
       }
     }
-    console.log('teams', teams);
     return teams;
   }
 
@@ -59,6 +58,10 @@ var SprintService = function($log) {
     members.push(member);
   }
 
+  function deleteMember(member) {
+    console.log('deleting member', member);
+  }
+
   function getMembers(teamName) {
     var candidates = [];
     for (var pos in members) {
@@ -75,6 +78,7 @@ var SprintService = function($log) {
     getTeam: getTeam,
     getData: getData,
     addMember: addMember,
+    deleteMember: deleteMember,
     getMembers: getMembers
   };
 };
