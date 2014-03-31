@@ -72,6 +72,7 @@ angular.module('sprinterApp')
 
           modalInstance.result.then(function () {
             SprintService.deleteMember(member);
+            $scope.team = SprintService.getTeam($scope.teamName);
           });
         };
 
