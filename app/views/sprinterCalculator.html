@@ -7,7 +7,7 @@
 
       <h5>Your sprint has a total of <strong>{{totalHours}}</strong> hours available</h5>
       <ul ng-repeat="group in groups">
-      <li>{{team.group.name}} has <strong>{{team.group.hours}}</strong> hours</li>
+      <li>'{{group.name}}' has <strong>{{group.hours}}</strong> hours ({{group.memberCount}} members)</li>
       </ul>
 
     </div>
