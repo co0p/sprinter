@@ -61,8 +61,14 @@ var SprintService = function() {
   function deleteMember(member) {
     for (var pos in teams) {
       var index = teams[pos].members.indexOf(member);
+      // delete from teams
       if (index > -1) {
         teams[pos].members.splice(index, 1);
+      }
+
+      var memberIndex = members.indexOf(member);
+      if (index > -1) {
+        members.splice(memberIndex, 1);
       }
     }
   }

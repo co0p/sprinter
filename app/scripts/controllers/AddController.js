@@ -15,6 +15,12 @@ app.controller('AddController', function($scope, $modalInstance) {
       days: 0,
       drag: 1
     };
+    member.team = member.team.toLowerCase();
+
+    if (member.group) {
+      member.group = member.group.toLowerCase();
+    }
+
     $modalInstance.close(member);
   };
 
