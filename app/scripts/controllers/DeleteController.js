@@ -1,21 +1,14 @@
 'use strict';
 
 var app = angular.module('sprinterApp');
-app.controller('DeleteController', function($scope, $modalInstance) {
+app.controller('DeleteController', function($scope, $modalInstance, member) {
 
-  $scope.name = '';
-  $scope.team = '';
-  $scope.group = '';
+  $scope.teamName = member.team;
+  $scope.memberName = member.name;
+  $scope.groupName = member.group;
 
   $scope.ok = function () {
-    var member = {
-      name: name,
-      team: team,
-      group: group,
-      days: 0,
-      drag: 1
-    };
-    $modalInstance.close(member);
+    $modalInstance.close();
   };
 
   $scope.cancel = function () {

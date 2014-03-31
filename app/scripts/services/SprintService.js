@@ -59,7 +59,8 @@ var SprintService = function() {
   }
 
   function deleteMember(member) {
-    console.log('deleting member', member);
+    var index = members.indexOf(member);
+    members.splice(index, 1);
   }
 
   function getMembers(teamName) {

@@ -59,16 +59,19 @@ angular.module('sprinterApp')
 
 
         // user wants to delete a member
-        $scope.deleteMember = function(team, memberIndex) {
-          // user wants to add a new member
+        $scope.deleteMember = function(member) {
           var modalInstance = $modal.open({
             templateUrl: 'views/delete.html',
-            controller: 'DeleteController'
+            controller: 'DeleteController',
+            resolve: {
+              member: function() {
+                return member;
+              }
+            }
           });
 
-          modalInstance.result.then(function (member) {
+          modalInstance.result.then(function () {
             SprintService.deleteMember(member);
-            $scope.teams = SprintService.getTeams();
           });
         };
 
