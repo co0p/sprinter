@@ -38,6 +38,7 @@ angular.module('sprinterApp')
           return total.toFixed(1);
         }
 
+
         // calculates the current stats for the individual groups of one team
         function groupStats() {
           var groups = [];
@@ -114,6 +115,9 @@ angular.module('sprinterApp')
           });
         };
 
+        $scope.calculateEstimatedHours = function(member) {
+          return (member.days * member.drag * HOURS_IN_DAY).toFixed(1);
+        };
 
         // react to a user changed the drag or day selection
         // by deep watching the data
