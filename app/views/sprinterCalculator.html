@@ -5,9 +5,9 @@
 
     <div class="panel-body">
 
-      <h5>Your sprint has a total of <strong>{{totalHours}}</strong> hours available</h5>
+      <h5>Your sprint has a total of <strong>{{totalHours}}</strong> available</h5>
       <ul ng-repeat="group in groups">
-      <li>'{{group.name}}' has <strong>{{group.hours}}</strong> hours ({{group.memberCount}} members)</li>
+      <li>'{{group.name}}' has <strong>{{group.hours | floatToTime}}</strong> and {{group.memberCount}} member(s)</li>
       </ul>
 
     </div>
@@ -22,7 +22,7 @@
       <div class="row member-row">
         <div class="col-xs-2"><strong>Name</strong></div>
         <div class="col-xs-2"><strong>Group</strong></div>
-        <div class="col-xs-2"><strong>Est. hours</strong></div>
+        <div class="col-xs-2"><strong>Est. time</strong></div>
         <div class="col-xs-2"><strong>Days (&#8709;{{averageDays}})</strong></div>
         <div class="col-xs-2"><strong>Eff. (&#8709;{{averageDrag}})</strong></div>
         <div class="col-xs-2">
@@ -32,7 +32,7 @@
       <div class="row member-row" ng-repeat="(i, member) in team.members track by $index">
         <div class="col-xs-2">{{team.members[i].name}}</div>
         <div class="col-xs-2">{{team.members[i].group}}</div>
-        <div class="col-xs-2" ng-bind="calculateEstimatedHours(team.members[i])"></div>
+        <div class="col-xs-2">{{calculateEstimatedHours(team.members[i]) | floatToTime}}</div>
         <div class="col-xs-2">
           <select type="text" ng-selected="team.members[i].days" class="form-control" ng-model="team.members[i].days">
             <option ng-repeat="day in days">{{day}}</option>
