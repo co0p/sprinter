@@ -5,10 +5,17 @@
 
     <div class="panel-body">
 
-      <h5>Your sprint has a total of <strong>{{totalHours}}</strong> available</h5>
-      <ul ng-repeat="group in groups">
-      <li>'{{group.name}}' has <strong>{{group.hours | floatToTime}}</strong> and {{group.memberCount}} member(s)</li>
-      </ul>
+      <div class="row">
+          <div class="col-md-6">
+              <h5>Your sprint has a total of <strong>{{totalHours | floatToTime}}</strong> available</h5>
+              <ul ng-repeat="group in groups">
+              <li>'{{group.name}}' has <strong>{{group.hours | floatToTime}}</strong> and {{group.memberCount}} member(s)</li>
+              </ul>
+          </div>
+          <div class="col-md-6">
+              <canvas sprinter-chart team='groups' width="300" height="200"></canvas>
+          </div>
+      </div>
 
     </div>
   </div>

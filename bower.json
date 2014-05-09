@@ -12,7 +12,8 @@
     "angular-sanitize": "1.2.6",
     "angular-route": "1.2.6",
     "bootstrap-ui": "~0.10.0",
-    "angular-bootstrap": "~0.10.0"
+    "angular-bootstrap": "~0.10.0",
+    "chartjs": "*"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",

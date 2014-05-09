@@ -18,5 +18,11 @@ angular.module('sprinterApp', [
         redirectTo: '/'
       });
   })
+
+  .factory('chartjs', function() {
+    return window.Chart;
+  })
+
+
   .constant('SERVER_URL','http://127.0.0.1:8080/server.php')
   .constant('HOURS_IN_DAY', 8);
