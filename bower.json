@@ -1,6 +1,6 @@
 {
   "name": "sprinter",
-  "version": "0.0.0",
+  "version": "0.1.4",
   "dependencies": {
     "angular": "1.2.6",
     "json3": "~3.2.6",
@@ -13,7 +13,6 @@
     "angular-route": "1.2.6",
     "bootstrap-ui": "~0.10.0",
     "angular-bootstrap": "~0.10.0",
-    "chartjs": "*",
     "d3": "~3.4.8"
   },
   "devDependencies": {
