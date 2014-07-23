@@ -58,7 +58,7 @@ app.controller('MainController', function ($scope, $http, SERVER_URL, $route, $m
       $route.reload();
     })
     .error(function() {
-      AlertService.add('danger', 'Failed reseting data', 2000);
+      AlertService.add('danger', 'Failed resetting data', 2000);
     });
   };
 

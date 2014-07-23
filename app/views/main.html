@@ -31,7 +31,7 @@
         <tab-heading>
         <span class="tab-heading-name">{{team.name}}</span> </tab-heading>
 
-        <div sprinter-calculator team-name={{team.name}}></div>
+        <div ng-if="team.active" sprinter-calculator team-name={{team.name}}></div>
       </tab>
     </tabset>
 
