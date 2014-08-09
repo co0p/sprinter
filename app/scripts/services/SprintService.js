@@ -38,6 +38,18 @@ var SprintService = function() {
         // team name is already in list
       }
     }
+
+    // sort according to group
+    teams.forEach(function(team) {
+      if (team.members) {
+        team.members.sort(function(a,b) {
+          if (a.group && b.group) {
+            return a.group.localeCompare(b.group);
+          }
+        });
+      }
+    });
+
     return teams;
   }
 

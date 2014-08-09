@@ -91,8 +91,11 @@ angular.module('sprinterApp')
         $scope.team = SprintService.getTeam($scope.teamName);
         var activeTeam = $scope.team;
 
-        // the possible values for the drop downns
-        $scope.days = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
+        // the possible values for the day drop down including half days
+        $scope.days = [];
+        for (var i= 0, length=22; i<length; i+=0.5) {
+          $scope.days.push(i);
+        }
         $scope.drags = [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0];
 
         updateStats();
