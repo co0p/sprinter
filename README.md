@@ -1,9 +1,6 @@
 Sprinter
 =========
 
-
-WARNING: WORK IN PROGRESS
-
 A little (angular) website helping a scrum master to get an
 understanding of the available time to plan a sprint.
 
